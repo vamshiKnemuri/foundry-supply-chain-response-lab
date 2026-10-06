@@ -1,0 +1,35 @@
+{
+  "policy": {
+    "max_incremental_cost_usd": 10000,
+    "min_days_saved": 2,
+    "approval_required": true,
+    "mode": "local_simulation_only"
+  },
+  "suppliers": [
+    {"id": "SUP-01", "name": "Northstar Components", "risk_tier": "medium"},
+    {"id": "SUP-02", "name": "Meridian Precision", "risk_tier": "high"},
+    {"id": "SUP-03", "name": "Cobalt Electronics", "risk_tier": "medium"}
+  ],
+  "shipments": [
+    {"id": "SHP-1042", "sku": "SENSOR-A", "units": 120, "supplier_id": "SUP-01", "origin_facility_id": "FAC-BOSTON", "destination_id": "FAC-CHICAGO", "delayed_arrival_day": 14, "committed_day": 8},
+    {"id": "SHP-2077", "sku": "PUMP-B", "units": 90, "supplier_id": "SUP-02", "origin_facility_id": "FAC-BOSTON", "destination_id": "FAC-CHICAGO", "delayed_arrival_day": 12, "committed_day": 9},
+    {"id": "SHP-3188", "sku": "CHIP-C", "units": 50, "supplier_id": "SUP-03", "origin_facility_id": "FAC-BOSTON", "destination_id": "FAC-SEATTLE", "delayed_arrival_day": 13, "committed_day": 9}
+  ],
+  "disruptions": [
+    {"id": "DIS-001", "shipment_id": "SHP-1042", "severity": "high", "reported_day": 2, "summary": "Supplier capacity interruption delayed a committed sensor shipment."},
+    {"id": "DIS-002", "shipment_id": "SHP-2077", "severity": "medium", "reported_day": 3, "summary": "Quality hold on a pump shipment; available alternates are insufficient."},
+    {"id": "DIS-003", "shipment_id": "SHP-3188", "severity": "high", "reported_day": 1, "summary": "Port closure delayed a chip shipment; the only fast alternate is above the cost policy."}
+  ],
+  "inventory": [
+    {"id": "LOT-401", "sku": "SENSOR-A", "facility_id": "FAC-DALLAS", "available_units": 180, "ready_day": 2, "handling_cost_usd": 3},
+    {"id": "LOT-402", "sku": "SENSOR-A", "facility_id": "FAC-PHOENIX", "available_units": 150, "ready_day": 1, "handling_cost_usd": 3},
+    {"id": "LOT-501", "sku": "PUMP-B", "facility_id": "FAC-DALLAS", "available_units": 25, "ready_day": 3, "handling_cost_usd": 4},
+    {"id": "LOT-601", "sku": "CHIP-C", "facility_id": "FAC-PHOENIX", "available_units": 80, "ready_day": 1, "handling_cost_usd": 5}
+  ],
+  "routes": [
+    {"id": "RTE-DC", "facility_id": "FAC-DALLAS", "destination_id": "FAC-CHICAGO", "transit_days": 3, "cost_usd": 4800, "enabled": true},
+    {"id": "RTE-PC", "facility_id": "FAC-PHOENIX", "destination_id": "FAC-CHICAGO", "transit_days": 5, "cost_usd": 3000, "enabled": true},
+    {"id": "RTE-PS", "facility_id": "FAC-PHOENIX", "destination_id": "FAC-SEATTLE", "transit_days": 4, "cost_usd": 15000, "enabled": true}
+  ]
+}
+

@@ -16,4 +16,10 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Evaluation suite
         run: response-lab evaluate
-
+      - name: Build distributable wheel
+        run: python -m pip wheel . --no-deps -w dist
+      - name: Verify wheel from outside repository
+        run: |
+          python -m pip install --force-reinstall --no-deps dist/*.whl
+          cd /tmp
+          response-lab evaluate

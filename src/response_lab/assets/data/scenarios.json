@@ -32,4 +32,3 @@
     {"id": "RTE-PS", "facility_id": "FAC-PHOENIX", "destination_id": "FAC-SEATTLE", "transit_days": 4, "cost_usd": 15000, "enabled": true}
   ]
 }
-

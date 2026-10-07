@@ -42,4 +42,3 @@ class FoundryClient:
         if result.get("validation", {}).get("result") != "VALID":
             raise LabError("Foundry action did not return VALID validation")
         return result
-

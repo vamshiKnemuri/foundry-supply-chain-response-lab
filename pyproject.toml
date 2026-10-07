@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "foundry-supply-chain-response-lab"
-version = "0.1.0"
+version = "0.2.0"
 description = "An evidence-first agentic supply-chain response lab with a Foundry ontology integration blueprint"
 requires-python = ">=3.10"
 authors = [{name = "Vamshi K N"}]
@@ -18,3 +18,5 @@ response-lab = "response_lab.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+response_lab = ["assets/data/*.json", "assets/web/*.html", "assets/web/*.css", "assets/web/*.js"]

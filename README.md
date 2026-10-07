@@ -15,6 +15,8 @@ response-lab serve
 
 Open **http://127.0.0.1:8765**. Click **Investigate** on a case, inspect the tool trace and citations, submit the eligible plan, enter an approver name, and execute the **local simulation**.
 
+For a guided presentation, follow the [two-minute demo walkthrough](docs/WALKTHROUGH.md). It shows the approval and audit flow, two blocked cases, and exactly which parts run today.
+
 The browser stores decisions in `.local/response_lab.db` under the directory where you start the command. For a fresh demo, choose a new file with `response-lab serve --db .local/fresh-demo.db`. The app binds to your computer only.
 
 ```bash

@@ -1,8 +1,13 @@
-# Response Lab: Agentic Supply Chain Intelligence for Palantir Foundry
+# Response Lab: Agentic Supply Chain Intelligence (Foundry-Oriented)
+
+[![CI](https://github.com/vamshiKnemuri/foundry-supply-chain-response-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/vamshiKnemuri/foundry-supply-chain-response-lab/actions/workflows/ci.yml) ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue) ![License MIT](https://img.shields.io/badge/license-MIT-green) ![Runs locally](https://img.shields.io/badge/runs-locally%20on%20synthetic%20data-lightgrey)
 
 An evidence-first portfolio project for investigating supply chain disruptions. It links disruption, shipment, supplier, inventory, and route objects; proposes a response; checks cost and feasibility; requires a named human approval; and records a hash-chained audit trail. The complete demo runs locally on synthetic data. No Palantir account, API key, or paid service is needed.
 
 > **Honest scope:** This is a Foundry-oriented architecture and local simulation, not a claim that it has been deployed to, or validated inside, a Palantir tenant. The supplied Foundry REST client is an integration scaffold and is never used by the local execution path.
+
+![Response Lab dashboard showing DIS-001 after human approval and local simulated execution, with tool trace, evidence, policy checks, and a valid audit chain](docs/images/dashboard.png)
+*DIS-001 after a named approver signs off and the local simulation executes. The audit integrity indicator reports VALID.*
 
 ## Run in two minutes
 
@@ -72,7 +77,7 @@ flowchart LR
 - The browser cannot alter quantities, savings, costs, or citations: submission rebuilds and compares the proposal against ontology records.
 - Named approval, repeat-safe execution, one execution per shipment, inventory conflict detection across processes, and local-only server binding.
 - SQLite audit records are chained with SHA-256; tampering is detectable with `audit_valid()`.
-- Synthetic data contains no resume content or real operational data.
+- All data is synthetic. No real operational or personal data is used.
 
 See [Foundry integration blueprint](docs/FOUNDRY_BLUEPRINT.md) for ontology mappings, AIP Logic, permissions, and deployment steps. See [security and limitations](docs/SECURITY.md) before adapting the code for production.
 
